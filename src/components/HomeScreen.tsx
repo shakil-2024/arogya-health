@@ -67,22 +67,26 @@ export const HomeScreen: React.FC = () => {
           </div>
         </div>
         
-        {/* Voice Mode Toggle - More Readable */}
+        {/* Voice Mode Toggle - Large & Unique */}
         <div className="absolute top-4 right-4">
           <HealthButton
-            variant="secondary"
-            size="touch"
-            icon={isVoiceMode ? <Mic /> : <MicOff />}
+            variant={isVoiceMode ? "success" : "secondary"}
+            size="lg"
+            icon={isVoiceMode ? <Mic className="h-8 w-8" /> : <MicOff className="h-8 w-8" />}
             onClick={toggleVoiceMode}
             voiceLabel={isVoiceMode ? t('touchMode') : t('voiceMode')}
-            className="rounded-xl px-4 py-2 bg-white/95 backdrop-blur-sm shadow-material-lg border border-white/20"
+            className={`rounded-2xl px-6 py-4 min-w-[140px] h-20 shadow-material-lg border-2 transition-all duration-300 ${
+              isVoiceMode 
+                ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white border-green-400 shadow-green-500/30 animate-pulse' 
+                : 'bg-gradient-to-r from-blue-500 to-indigo-600 text-white border-blue-400 shadow-blue-500/30 hover:shadow-blue-500/50'
+            }`}
           >
             <div className="flex flex-col items-center gap-1">
-              <span className="text-xs font-medium text-gray-700">
-                {isVoiceMode ? 'Touch' : 'Voice'}
+              <span className="text-sm font-bold">
+                {isVoiceMode ? 'VOICE' : 'VOICE'}
               </span>
-              <span className="text-xs text-gray-500">
-                {isVoiceMode ? 'Mode' : 'Mode'}
+              <span className="text-xs font-medium opacity-90">
+                {isVoiceMode ? 'ON' : 'OFF'}
               </span>
             </div>
           </HealthButton>
