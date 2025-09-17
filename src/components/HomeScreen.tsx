@@ -67,7 +67,7 @@ export const HomeScreen: React.FC = () => {
           </div>
         </div>
         
-        {/* Voice Mode Toggle - Floating */}
+        {/* Voice Mode Toggle - More Readable */}
         <div className="absolute top-4 right-4">
           <HealthButton
             variant="secondary"
@@ -75,9 +75,16 @@ export const HomeScreen: React.FC = () => {
             icon={isVoiceMode ? <Mic /> : <MicOff />}
             onClick={toggleVoiceMode}
             voiceLabel={isVoiceMode ? t('touchMode') : t('voiceMode')}
-            className="rounded-full w-14 h-14 p-0 bg-white/90 backdrop-blur-sm shadow-material-lg"
+            className="rounded-xl px-4 py-2 bg-white/95 backdrop-blur-sm shadow-material-lg border border-white/20"
           >
-            <span className="sr-only">{isVoiceMode ? t('touchMode') : t('voiceMode')}</span>
+            <div className="flex flex-col items-center gap-1">
+              <span className="text-xs font-medium text-gray-700">
+                {isVoiceMode ? 'Touch' : 'Voice'}
+              </span>
+              <span className="text-xs text-gray-500">
+                {isVoiceMode ? 'Mode' : 'Mode'}
+              </span>
+            </div>
           </HealthButton>
         </div>
       </div>
@@ -120,35 +127,47 @@ export const HomeScreen: React.FC = () => {
           </Card>
         </div>
 
-        {/* Emergency and Language Row */}
-        <div className="grid grid-cols-2 gap-4 mb-8">
+        {/* Beginner Instructions */}
+        <div className="mb-6 px-2">
+          <h2 className="text-lg font-bold text-foreground mb-2">Quick Actions</h2>
+          <p className="text-sm text-muted-foreground">
+            Choose what you want to do. {isVoiceMode ? 'You can speak your choice or tap the buttons.' : 'Tap any button below to get started.'}
+          </p>
+        </div>
+
+        {/* Emergency and Language - Vertical Layout */}
+        <div className="grid grid-cols-1 gap-4 mb-8">
           {/* Emergency Button */}
-          <Card className="p-4 shadow-material-lg border-0 bg-card/50 backdrop-blur-sm">
+          <Card className="p-6 shadow-material-lg border-0 bg-card/50 backdrop-blur-sm">
             <HealthButton
               variant="emergency"
               size="lg"
               icon={<AlertTriangle />}
               onClick={handleEmergency}
               voiceLabel={t('emergency')}
-              className="w-full h-20 flex-col gap-1"
+              className="w-full justify-start text-left h-16"
             >
-              <span className="text-lg font-bold">{t('emergency')}</span>
-              <span className="text-xs opacity-90">SOS</span>
+              <div className="flex flex-col items-start">
+                <span className="text-xl font-bold">{t('emergency')}</span>
+                <span className="text-sm opacity-90 font-normal">तुरंत मदद के लिए • For immediate help</span>
+              </div>
             </HealthButton>
           </Card>
 
           {/* Language Button */}
-          <Card className="p-4 shadow-material-lg border-0 bg-card/50 backdrop-blur-sm">
+          <Card className="p-6 shadow-material-lg border-0 bg-card/50 backdrop-blur-sm">
             <HealthButton
               variant="primary"
               size="lg"
               icon={<Globe />}
               onClick={handleLanguage}
               voiceLabel={t('language')}
-              className="w-full h-20 flex-col gap-1"
+              className="w-full justify-start text-left h-16"
             >
-              <span className="text-lg font-bold">{t('language')}</span>
-              <span className="text-xs opacity-90">{currentLanguageInfo.name}</span>
+              <div className="flex flex-col items-start">
+                <span className="text-xl font-bold">{t('language')}</span>
+                <span className="text-sm opacity-90 font-normal">भाषा बदलें • Change language</span>
+              </div>
             </HealthButton>
           </Card>
         </div>
