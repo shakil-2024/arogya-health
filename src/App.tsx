@@ -3,24 +3,36 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import { LanguageProvider } from "@/contexts/LanguageContext";
+import { VoiceProvider } from "@/contexts/VoiceContext";
+import { HomeScreen } from "@/components/HomeScreen";
+import { HealthTimeline } from "@/components/HealthTimeline";
+import { AddRecordForm } from "@/components/AddRecordForm";
+import { LanguageSelector } from "@/components/LanguageSelector";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <LanguageProvider>
+      <VoiceProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<HomeScreen />} />
+              <Route path="/timeline" element={<HealthTimeline />} />
+              <Route path="/add-record" element={<AddRecordForm />} />
+              <Route path="/language" element={<LanguageSelector />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </VoiceProvider>
+    </LanguageProvider>
   </QueryClientProvider>
 );
 
