@@ -59,11 +59,11 @@ export const HomeScreen: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-primary/60"></div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white">
-            <div className="flex items-center justify-center gap-3 mb-2">
-              <Heart className="h-10 w-10" />
-              <h1 className="text-3xl font-bold">Health Records</h1>
+            <div className="flex items-center justify-center gap-4 mb-3">
+              <Heart className="h-14 w-14" />
+              <h1 className="text-4xl font-bold">Health Records</h1>
             </div>
-            <p className="text-sm opacity-90">{currentLanguageInfo.nativeName} • स्वास्थ्य रिकॉर्ड</p>
+            <p className="text-lg opacity-90">{currentLanguageInfo.nativeName} • स्वास्थ्य रिकॉर्ड</p>
           </div>
         </div>
         
@@ -94,83 +94,83 @@ export const HomeScreen: React.FC = () => {
       </div>
 
       <div className="p-4">
-        {/* Main Action Cards */}
-        <div className="grid grid-cols-1 gap-6 mb-8">
+        {/* Main Action Cards - Larger Buttons */}
+        <div className="grid grid-cols-1 gap-8 mb-10">
           {/* My Records */}
-          <Card className="p-6 shadow-material-lg border-0 bg-card/50 backdrop-blur-sm">
+          <Card className="p-8 shadow-material-lg border-0 bg-card/50 backdrop-blur-sm">
             <HealthButton
               variant="primary"
               size="lg"
-              icon={<FileText />}
+              icon={<FileText className="h-12 w-12" />}
               onClick={handleMyRecords}
               voiceLabel={t('myRecords')}
-              className="w-full justify-start text-left"
+              className="w-full justify-start text-left h-24"
             >
               <div className="flex flex-col items-start">
-                <span className="text-xl font-bold">{t('myRecords')}</span>
-                <span className="text-sm opacity-80 font-normal">अपनी स्वास्थ्य समयरेखा देखें</span>
+                <span className="text-3xl font-bold">{t('myRecords')}</span>
+                <span className="text-lg opacity-80 font-normal mt-1">अपनी स्वास्थ्य समयरेखा देखें</span>
               </div>
             </HealthButton>
           </Card>
 
           {/* Add Record */}
-          <Card className="p-6 shadow-material-lg border-0 bg-card/50 backdrop-blur-sm">
+          <Card className="p-8 shadow-material-lg border-0 bg-card/50 backdrop-blur-sm">
             <HealthButton
               variant="secondary"
               size="lg"
-              icon={<Plus />}
+              icon={<Plus className="h-12 w-12" />}
               onClick={handleAddRecord}
               voiceLabel={t('addRecord')}
-              className="w-full justify-start text-left"
+              className="w-full justify-start text-left h-24"
             >
               <div className="flex flex-col items-start">
-                <span className="text-xl font-bold">{t('addRecord')}</span>
-                <span className="text-sm opacity-80 font-normal">नया मेडिकल रिकॉर्ड जोड़ें</span>
+                <span className="text-3xl font-bold">{t('addRecord')}</span>
+                <span className="text-lg opacity-80 font-normal mt-1">नया मेडिकल रिकॉर्ड जोड़ें</span>
               </div>
             </HealthButton>
           </Card>
         </div>
 
         {/* Beginner Instructions */}
-        <div className="mb-6 px-2">
-          <h2 className="text-lg font-bold text-foreground mb-2">Quick Actions</h2>
-          <p className="text-sm text-muted-foreground">
+        <div className="mb-8 px-2">
+          <h2 className="text-2xl font-bold text-foreground mb-3">Quick Actions</h2>
+          <p className="text-lg text-muted-foreground">
             Choose what you want to do. {isVoiceMode ? 'You can speak your choice or tap the buttons.' : 'Tap any button below to get started.'}
           </p>
         </div>
 
         {/* Emergency and Language - Vertical Layout */}
-        <div className="grid grid-cols-1 gap-4 mb-8">
+        <div className="grid grid-cols-1 gap-6 mb-10">
           {/* Emergency Button */}
-          <Card className="p-6 shadow-material-lg border-0 bg-card/50 backdrop-blur-sm">
+          <Card className="p-8 shadow-material-lg border-0 bg-card/50 backdrop-blur-sm">
             <HealthButton
               variant="emergency"
               size="lg"
-              icon={<AlertTriangle />}
+              icon={<AlertTriangle className="h-12 w-12" />}
               onClick={handleEmergency}
               voiceLabel={t('emergency')}
-              className="w-full justify-start text-left h-16"
+              className="w-full justify-start text-left h-24"
             >
               <div className="flex flex-col items-start">
-                <span className="text-xl font-bold">{t('emergency')}</span>
-                <span className="text-sm opacity-90 font-normal">तुरंत मदद के लिए • For immediate help</span>
+                <span className="text-3xl font-bold">{t('emergency')}</span>
+                <span className="text-lg opacity-90 font-normal mt-1">तुरंत मदद के लिए • For immediate help</span>
               </div>
             </HealthButton>
           </Card>
 
           {/* Language Button */}
-          <Card className="p-6 shadow-material-lg border-0 bg-card/50 backdrop-blur-sm">
+          <Card className="p-8 shadow-material-lg border-0 bg-card/50 backdrop-blur-sm">
             <HealthButton
               variant="primary"
               size="lg"
-              icon={<Globe />}
+              icon={<Globe className="h-12 w-12" />}
               onClick={handleLanguage}
               voiceLabel={t('language')}
-              className="w-full justify-start text-left h-16"
+              className="w-full justify-start text-left h-24"
             >
               <div className="flex flex-col items-start">
-                <span className="text-xl font-bold">{t('language')}</span>
-                <span className="text-sm opacity-90 font-normal">भाषा बदलें • Change language</span>
+                <span className="text-3xl font-bold">{t('language')}</span>
+                <span className="text-lg opacity-90 font-normal mt-1">भाषा बदलें • Change language</span>
               </div>
             </HealthButton>
           </Card>
@@ -178,12 +178,12 @@ export const HomeScreen: React.FC = () => {
 
         {/* Voice Instructions */}
         {isVoiceMode && (
-          <Card className="p-4 bg-accent/10 border-accent/20 shadow-material-md">
-            <div className="flex items-center gap-3">
-              <Activity className="h-5 w-5 text-accent animate-pulse" />
+          <Card className="p-6 bg-accent/10 border-accent/20 shadow-material-md">
+            <div className="flex items-center gap-4">
+              <Activity className="h-8 w-8 text-accent animate-pulse" />
               <div>
-                <p className="text-sm font-medium text-accent">आवाज मोड सक्रिय • Voice Mode Active</p>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-lg font-medium text-accent">आवाज मोड सक्रिय • Voice Mode Active</p>
+                <p className="text-base text-muted-foreground">
                   कहें: "मेरे रिकॉर्ड", "रिकॉर्ड जोड़ें", "आपातकाल", या "भाषा"
                 </p>
               </div>
