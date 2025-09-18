@@ -72,20 +72,20 @@ export const HomeScreen: React.FC = () => {
           <HealthButton
             variant={isVoiceMode ? "success" : "secondary"}
             size="lg"
-            icon={isVoiceMode ? <Mic className="h-8 w-8" /> : <MicOff className="h-8 w-8" />}
+            icon={isVoiceMode ? <Mic className="h-10 w-10" /> : <MicOff className="h-10 w-10" />}
             onClick={toggleVoiceMode}
             voiceLabel={isVoiceMode ? t('touchMode') : t('voiceMode')}
-            className={`rounded-2xl px-6 py-4 min-w-[140px] h-20 shadow-material-lg border-2 transition-all duration-300 ${
+            className={`rounded-3xl px-8 py-6 min-w-[160px] h-24 shadow-2xl border-4 transition-all duration-300 ${
               isVoiceMode 
-                ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white border-green-400 shadow-green-500/30 animate-pulse' 
-                : 'bg-gradient-to-r from-blue-500 to-indigo-600 text-white border-blue-400 shadow-blue-500/30 hover:shadow-blue-500/50'
+                ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white border-green-300 shadow-green-500/50 animate-pulse ring-4 ring-green-400/30' 
+                : 'bg-gradient-to-r from-blue-500 to-indigo-600 text-white border-blue-300 shadow-blue-500/50 hover:shadow-blue-500/70 ring-4 ring-blue-400/20'
             }`}
           >
-            <div className="flex flex-col items-center gap-1">
-              <span className="text-sm font-bold">
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-xl font-black tracking-wide">
                 {isVoiceMode ? 'VOICE' : 'VOICE'}
               </span>
-              <span className="text-xs font-medium opacity-90">
+              <span className="text-lg font-bold">
                 {isVoiceMode ? 'ON' : 'OFF'}
               </span>
             </div>
