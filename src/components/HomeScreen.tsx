@@ -13,7 +13,9 @@ import {
   Mic, 
   MicOff,
   Activity,
-  Heart
+  Heart,
+  ArrowLeft,
+  Hospital
 } from 'lucide-react';
 
 export const HomeScreen: React.FC = () => {
@@ -47,6 +49,19 @@ export const HomeScreen: React.FC = () => {
     navigate('/language');
   };
 
+  const handleHospital = () => {
+    if (isVoiceMode) {
+      speak('निकटतम अस्पताल से जुड़ रहे हैं।', currentLanguageInfo.code);
+    }
+    // Here you would implement actual hospital connection functionality
+    alert('Connecting to nearest hospital - This would show nearby hospitals');
+  };
+
+  const handleGoBack = () => {
+    // For home screen, we could go to a different view or just refresh
+    window.location.reload();
+  };
+
   return (
     <div className="min-h-screen bg-gradient-subtle">
       {/* Hero Section */}
@@ -67,8 +82,8 @@ export const HomeScreen: React.FC = () => {
           </div>
         </div>
         
-        {/* Voice Mode Toggle - Large & Unique */}
-        <div className="absolute top-4 right-4">
+        {/* Voice Mode Toggle - Large & Unique - Center Staged */}
+        <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
           <HealthButton
             variant={isVoiceMode ? "success" : "secondary"}
             size="lg"
@@ -77,8 +92,8 @@ export const HomeScreen: React.FC = () => {
             voiceLabel={isVoiceMode ? t('touchMode') : t('voiceMode')}
             className={`rounded-3xl px-8 py-6 min-w-[160px] h-24 shadow-2xl border-4 transition-all duration-300 ${
               isVoiceMode 
-                ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white border-green-300 shadow-green-500/50 animate-pulse ring-4 ring-green-400/30' 
-                : 'bg-gradient-to-r from-blue-500 to-indigo-600 text-white border-blue-300 shadow-blue-500/50 hover:shadow-blue-500/70 ring-4 ring-blue-400/20'
+                ? 'bg-gradient-to-r from-red-500 to-red-600 text-white border-red-300 shadow-red-500/50 animate-pulse ring-4 ring-red-400/30' 
+                : 'bg-gradient-to-r from-red-400 to-red-500 text-white border-red-300 shadow-red-500/50 hover:shadow-red-500/70 ring-4 ring-red-400/20'
             }`}
           >
             <div className="flex flex-col items-center gap-2">
@@ -89,6 +104,20 @@ export const HomeScreen: React.FC = () => {
                 {isVoiceMode ? 'ON' : 'OFF'}
               </span>
             </div>
+          </HealthButton>
+        </div>
+
+        {/* Back Button */}
+        <div className="absolute top-4 left-4">
+          <HealthButton
+            variant="secondary"
+            size="lg"
+            icon={<ArrowLeft className="h-8 w-8" />}
+            onClick={handleGoBack}
+            voiceLabel="Go Back"
+            className="rounded-2xl px-4 py-4 h-16 shadow-lg"
+          >
+            <span className="text-sm font-bold">Back</span>
           </HealthButton>
         </div>
       </div>
@@ -154,6 +183,23 @@ export const HomeScreen: React.FC = () => {
               <div className="flex flex-col items-start">
                 <span className="text-3xl font-bold">{t('emergency')}</span>
                 <span className="text-lg opacity-90 font-normal mt-1">तुरंत मदद के लिए • For immediate help</span>
+              </div>
+            </HealthButton>
+          </Card>
+
+          {/* Hospital Connect Button */}
+          <Card className="p-8 shadow-material-lg border-0 bg-card/50 backdrop-blur-sm">
+            <HealthButton
+              variant="emergency"
+              size="lg"
+              icon={<Hospital className="h-12 w-12" />}
+              onClick={handleHospital}
+              voiceLabel="Connect to Hospital"
+              className="w-full justify-start text-left h-24"
+            >
+              <div className="flex flex-col items-start">
+                <span className="text-3xl font-bold">Connect to Hospital</span>
+                <span className="text-lg opacity-90 font-normal mt-1">निकटतम अस्पताल • Find nearest hospital</span>
               </div>
             </HealthButton>
           </Card>
