@@ -72,39 +72,39 @@ export const HomeScreen: React.FC = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-primary/60"></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white">
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <div className="text-center text-white mb-6">
             <div className="flex items-center justify-center gap-4 mb-3">
               <Heart className="h-14 w-14" />
               <h1 className="text-4xl font-bold">Health Records</h1>
             </div>
             <p className="text-lg opacity-90">{currentLanguageInfo.nativeName} • स्वास्थ्य रिकॉर्ड</p>
           </div>
-        </div>
-        
-        {/* Voice Mode Toggle - Large & Unique - Center Staged */}
-        <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
-          <HealthButton
-            variant={isVoiceMode ? "success" : "secondary"}
-            size="lg"
-            icon={isVoiceMode ? <Mic className="h-10 w-10" /> : <MicOff className="h-10 w-10" />}
-            onClick={toggleVoiceMode}
-            voiceLabel={isVoiceMode ? t('touchMode') : t('voiceMode')}
-            className={`rounded-3xl px-8 py-6 min-w-[160px] h-24 shadow-2xl border-4 transition-all duration-300 ${
-              isVoiceMode 
-                ? 'bg-gradient-to-r from-red-500 to-red-600 text-white border-red-300 shadow-red-500/50 animate-pulse ring-4 ring-red-400/30' 
-                : 'bg-gradient-to-r from-red-400 to-red-500 text-white border-red-300 shadow-red-500/50 hover:shadow-red-500/70 ring-4 ring-red-400/20'
-            }`}
-          >
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-xl font-black tracking-wide">
-                {isVoiceMode ? 'VOICE' : 'VOICE'}
-              </span>
-              <span className="text-lg font-bold">
-                {isVoiceMode ? 'ON' : 'OFF'}
-              </span>
-            </div>
-          </HealthButton>
+          
+          {/* Voice Mode Toggle - Below Heading */}
+          <div>
+            <HealthButton
+              variant={isVoiceMode ? "success" : "secondary"}
+              size="lg"
+              icon={isVoiceMode ? <Mic className="h-10 w-10" /> : <MicOff className="h-10 w-10" />}
+              onClick={toggleVoiceMode}
+              voiceLabel={isVoiceMode ? t('touchMode') : t('voiceMode')}
+              className={`rounded-3xl px-8 py-6 min-w-[160px] h-24 shadow-2xl border-4 transition-all duration-300 ${
+                isVoiceMode 
+                  ? 'bg-gradient-to-r from-red-500 to-red-600 text-white border-red-300 shadow-red-500/50 animate-pulse ring-4 ring-red-400/30' 
+                  : 'bg-gradient-to-r from-red-400 to-red-500 text-white border-red-300 shadow-red-500/50 hover:shadow-red-500/70 ring-4 ring-red-400/20'
+              }`}
+            >
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-xl font-black tracking-wide">
+                  {isVoiceMode ? 'VOICE' : 'VOICE'}
+                </span>
+                <span className="text-lg font-bold">
+                  {isVoiceMode ? 'ON' : 'OFF'}
+                </span>
+              </div>
+            </HealthButton>
+          </div>
         </div>
 
         {/* Back Button */}
