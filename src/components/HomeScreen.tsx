@@ -53,8 +53,7 @@ export const HomeScreen: React.FC = () => {
     if (isVoiceMode) {
       speak('निकटतम अस्पताल से जुड़ रहे हैं।', currentLanguageInfo.code);
     }
-    // Here you would implement actual hospital connection functionality
-    alert('Connecting to nearest hospital - This would show nearby hospitals');
+    navigate('/hospitals');
   };
 
   const handleGoBack = () => {

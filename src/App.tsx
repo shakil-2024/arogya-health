@@ -9,6 +9,7 @@ import { HomeScreen } from "@/components/HomeScreen";
 import { HealthTimeline } from "@/components/HealthTimeline";
 import { AddRecordForm } from "@/components/AddRecordForm";
 import { LanguageSelector } from "@/components/LanguageSelector";
+import { HospitalsPage } from "@/pages/HospitalsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
               <Route path="/timeline" element={<HealthTimeline />} />
               <Route path="/add-record" element={<AddRecordForm />} />
               <Route path="/language" element={<LanguageSelector />} />
+              <Route path="/hospitals" element={<HospitalsPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
