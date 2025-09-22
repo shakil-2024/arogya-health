@@ -4,6 +4,9 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useVoice } from '@/contexts/VoiceContext';
 import { HealthButton } from './HealthButton';
 import { Card } from '@/components/ui/card';
+import { ChatbotButton } from './ChatbotButton';
+import { OnlineStatus } from './OnlineStatus';
+import { UpcomingDeadlines } from './UpcomingDeadlines';
 import healthHero from '@/assets/health-hero.jpg';
 import { 
   FileText, 
@@ -119,6 +122,11 @@ export const HomeScreen: React.FC = () => {
             <span className="text-sm font-bold">Back</span>
           </HealthButton>
         </div>
+
+        {/* Online Status */}
+        <div className="absolute top-4 right-4">
+          <OnlineStatus />
+        </div>
       </div>
 
       <div className="p-4">
@@ -221,6 +229,11 @@ export const HomeScreen: React.FC = () => {
           </Card>
         </div>
 
+        {/* Upcoming Deadlines */}
+        <div className="mb-8">
+          <UpcomingDeadlines />
+        </div>
+
         {/* Voice Instructions */}
         {isVoiceMode && (
           <Card className="p-6 bg-accent/10 border-accent/20 shadow-material-md">
@@ -236,6 +249,9 @@ export const HomeScreen: React.FC = () => {
           </Card>
         )}
       </div>
+      
+      {/* Fixed Chatbot Button */}
+      <ChatbotButton />
     </div>
   );
 };
