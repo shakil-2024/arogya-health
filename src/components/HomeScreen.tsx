@@ -130,6 +130,11 @@ export const HomeScreen: React.FC = () => {
       </div>
 
       <div className="p-4">
+        {/* Upcoming Deadlines - Front and Center */}
+        <div className="mb-8">
+          <UpcomingDeadlines />
+        </div>
+
         {/* Main Action Cards - Larger Buttons */}
         <div className="grid grid-cols-1 gap-8 mb-10">
           {/* My Records */}
@@ -227,11 +232,6 @@ export const HomeScreen: React.FC = () => {
               </div>
             </HealthButton>
           </Card>
-        </div>
-
-        {/* Upcoming Deadlines */}
-        <div className="mb-8">
-          <UpcomingDeadlines />
         </div>
 
         {/* Voice Instructions */}
